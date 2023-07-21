@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather</title>
+</head>
+<body>
+  <main>
+    <div class="wrapper">
+      <div class="weather">
+        <form class="weather__search">
+          <input type="text" placeholder="City name" class="weather__search-input">
+          <button type="submit" class="weather__search-btn"></button>
+        </form>
+        <div class="preloader">
+          <img src="./assets/preloader.gif" alt="preloader">
+        </div>
+        <div class="weather__container">
+          <div class="tabs"></div>
+          <div class="weather__locations">
+            <div class="weather__locations-add">
+              <p>Added Locations:</p>
+            </div>
+            <div class="weather__locations-save">
+              <ul class="locations-list"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="./js/main.js" type="module"></script>
+</body>
+</html>

@@ -17,7 +17,82 @@
           <img src="./assets/preloader.gif" alt="preloader">
         </div>
         <div class="weather__container">
-          <div class="tabs"></div>
+          <div class="weather__tabs">
+            <div class="weather__tab weather__tab-now active">
+              <p class="weather__tab-temperature"><span>14</span>&#176;</p>
+              <div class="weather__tab-icon">
+                <img src="./assets/weather-icons/01d.png" alt="sun-icon" class="weather__tab-icon-img">
+              </div>
+              <div class="weather__tab-city">
+                <p class="weather__tab-city-name">City</p>
+                <div class="weather__tab-city-like"></div>
+              </div>
+            </div>
+            <div class="weather__tab weather__tab-details">
+              <p class="weather__tab-title">City</p>
+              <ul class="weather__tab-list">
+                <li class="list__item">Temperature: <span class="temperature">14</span>&#176;</li>
+                <li class="list__item">Feels like: <span class="feels">10</span>&#176;</li>
+                <li class="list__item">Weather: <span class="weather-description">Clouds</span></li>
+                <li class="list__item">Sunrise: <span class="sunrise">03:21</span></li>
+                <li class="list__item">Sunset: <span class="sunset">18:54</span></li>
+              </ul>
+            </div>
+            <div class="weather__tab weather__tab-forecast">
+              <p class="weather__tab-title">City</p>
+              <ul class="weather__tab-list">
+                <li class="list__item-forecast">
+                  <div class="forecast-card">
+                    <div>
+                      <p class="forecast-card__date">22 May</p>
+                      <p class="forecast-card__temperature">Temperature: <span>13</span>&#176;</p>
+                      <p class="forecast-card__feels">Temperature: <span>10</span>&#176;</p>
+                    </div>
+                    <div>
+                      <p class="forecast-card__time">12:30</p>
+                      <p class="forecast-card__weather">Rain</p>
+                      <img src="./assets/icons/rain.svg" alt="rain-icon" class="forecast-card__icon">
+                    </div>
+                  </div>
+                </li>
+                <li class="list__item-forecast">
+                  <div class="forecast-card">
+                    <div>
+                      <p class="forecast-card__date">22 May</p>
+                      <p class="forecast-card__temperature">Temperature: <span>15</span>&#176;</p>
+                      <p class="forecast-card__feels">Temperature: <span>12</span>&#176;</p>
+                    </div>
+                    <div>
+                      <p class="forecast-card__time">15:30</p>
+                      <p class="forecast-card__weather">Rain</p>
+                      <img src="./assets/icons/rain.svg" alt="rain-icon" class="forecast-card__icon">
+                    </div>
+                  </div>
+                </li>
+                <li class="list__item-forecast">
+                  <div class="forecast-card">
+                    <div>
+                      <p class="forecast-card__date">22 May</p>
+                      <p class="forecast-card__temperature">Temperature: <span>13</span>&#176;</p>
+                      <p class="forecast-card__feels">Temperature: <span>13</span>&#176;</p>
+                    </div>
+                    <div>
+                      <p class="forecast-card__time">18:30</p>
+                      <p class="forecast-card__weather">Rain</p>
+                      <img src="./assets/icons/rain.svg" alt="rain-icon" class="forecast-card__icon">
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <nav class="weather__navigation">
+              <ul class="tabs__items">
+                <li class="tabs__item active">Now</li>
+                <li class="tabs__item">Details</li>
+                <li class="tabs__item">Forecast</li>
+              </ul>
+            </nav>
+          </div>
           <div class="weather__locations">
             <div class="weather__locations-add">
               <p>Added Locations:</p>

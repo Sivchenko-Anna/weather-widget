@@ -1,8 +1,78 @@
-body a {
-  color: aqua;
+@import url("https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400&display=swap");
+* {
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
-body h1 {
-  font-size: 40px;
+
+.wrapper {
+  height: 100vh;
+  background-image: url("../../assets/Bg-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather {
+  width: 60vw;
+  height: 70vh;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.22) 100%);
+  filter: blur(0px);
+  backdrop-filter: blur(3px);
+  font-family: "Sarabun", sans-serif;
+}
+.weather__search {
+  width: 100%;
+  padding: 7px 18px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+}
+.weather__search-input {
+  width: 92%;
+  outline: none;
+  background-color: inherit;
+  border: 0;
+  font-family: "Sarabun", sans-serif;
+  font-size: 2.3vw;
+  font-weight: 400;
+  color: #1b1b1b;
+  padding-left: 6px;
+}
+.weather__search-input::placeholder {
+  color: #444444;
+}
+.weather__search-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: inherit;
+  background-image: url("../../assets/icons/search.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+.weather__search-btn:hover {
+  transform: scale(1.1);
+  transition: all 0.1s ease-in-out;
+}
+
+.preloader {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  display: none;
+}
+
+.preloader img {
+  width: 6vw;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -78,7 +78,6 @@
 .weather__tab {
   flex-direction: column;
   justify-content: space-between;
-  border-right: 2px solid rgba(0, 0, 0, 0.2);
   padding: 1.5vw 1vw;
 }
 .weather__tab-temperature {
@@ -86,11 +85,24 @@
   line-height: 5vw;
   font-weight: 500;
 }
-.weather__tab-icon {
-  background-color: aqua;
-}
 .weather__tab-icon-img {
   max-width: 100%;
+}
+.weather__tab-city {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.weather__tab-city-name {
+  font-size: 3vw;
+}
+.weather__tab-city-like {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.weather__tab-title {
+  font-size: 3vw;
 }
 .weather__tab-now {
   display: none;
@@ -139,6 +151,57 @@
 }
 .weather__navigation .tabs__items .tabs__item:first-child {
   border-bottom-left-radius: 20px;
+}
+.weather__navigation .tabs__items .tabs__item:last-child {
+  border: 0;
+}
+.weather__locations {
+  width: 45%;
+  padding: 1.5vw 1vw;
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+}
+.weather__locations-add {
+  font-size: 3vw;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+.weather__locations-save {
+  padding-top: 1.5vw;
+  overflow: auto;
+  max-height: 80%;
+}
+.weather__locations-save .locations-list {
+  padding: 0;
+  list-style: none;
+}
+.weather__locations-save .locations-list__item {
+  margin-bottom: 1vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.2vw;
+  cursor: pointer;
+}
+.weather__locations-save .locations-list__item-btn {
+  background-image: url("../../assets/icons/close.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: cover;
+  border: 0;
+  height: 1.7vw;
+  width: 1.7vw;
+  padding: 0;
+  visibility: hidden;
+  transition: all 0.1s ease-in-out;
+  transform: scale(0);
+  cursor: pointer;
+}
+.weather__locations-save .locations-list__item:hover {
+  font-weight: 500;
+}
+.weather__locations-save .locations-list__item:hover .locations-list__item-btn {
+  transition: all 0.1s ease-in-out;
+  transform: scale(1);
+  visibility: visible;
 }
 
 .preloader {

@@ -19,7 +19,7 @@
         </div>
         <div class="weather__container">
           <div class="weather__tabs">
-            <div class="weather__tab weather__tab-now active">
+            <div class="weather__tab weather__tab-now">
               <p class="weather__tab-temperature"><span>14</span>&#176;</p>
               <div class="weather__tab-icon">
                 <img src="./assets/weather-icons/04d.png" alt="sun-icon" class="weather__tab-icon-img">
@@ -33,7 +33,7 @@
                 </button>
               </div>
             </div>
-            <div class="weather__tab weather__tab-details">
+            <div class="weather__tab weather__tab-details active">
               <p class="weather__tab-title">City</p>
               <ul class="weather__tab-list">
                 <li class="list__item">Temperature: <span class="temperature">14</span>&#176;</li>
@@ -92,8 +92,8 @@
             </div>
             <nav class="weather__navigation">
               <ul class="tabs__items">
-                <li class="tabs__item active">Now</li>
-                <li class="tabs__item">Details</li>
+                <li class="tabs__item">Now</li>
+                <li class="tabs__item active">Details</li>
                 <li class="tabs__item">Forecast</li>
               </ul>
             </nav>
@@ -103,7 +103,10 @@
               <p>Added Locations:</p>
             </div>
             <div class="weather__locations-save">
-              <ul class="locations-list"></ul>
+              <ul class="locations-list">
+                <li class="locations-list__item">Omsk<button class="locations-list__item-btn"></button></li>
+                <li class="locations-list__item">Testtesttesttest<button class="locations-list__item-btn"></button></li>
+              </ul>
             </div>
           </div>
         </div>

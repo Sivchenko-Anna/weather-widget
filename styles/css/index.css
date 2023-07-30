@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500&display=swap");
 * {
   margin: 0;
   box-sizing: border-box;
@@ -17,7 +17,6 @@
 
 .weather {
   width: 60vw;
-  height: 70vh;
   border-radius: 20px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.22) 100%);
   filter: blur(0px);
@@ -61,6 +60,85 @@
 .weather__search-btn:hover {
   transform: scale(1.1);
   transition: all 0.1s ease-in-out;
+}
+.weather__container {
+  display: flex;
+  justify-content: space-between;
+}
+.weather__tabs {
+  position: relative;
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.weather .active {
+  display: flex;
+}
+.weather__tab {
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 1.5vw 1vw;
+}
+.weather__tab-temperature {
+  font-size: 6vw;
+  line-height: 5vw;
+  font-weight: 500;
+}
+.weather__tab-icon {
+  background-color: aqua;
+}
+.weather__tab-icon-img {
+  max-width: 100%;
+}
+.weather__tab-now {
+  display: none;
+}
+.weather__tab-details {
+  display: none;
+}
+.weather__tab-forecast {
+  display: none;
+}
+.weather__navigation .tabs__items {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 0;
+}
+.weather__navigation .tabs__items .tabs__item {
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 1.5vw 1.1vw;
+  width: 33.3%;
+  font-size: 2.3vw;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s ease-out 0.1s;
+}
+.weather__navigation .tabs__items .tabs__item::after {
+  height: 2px;
+  width: 80%;
+  background: rgba(0, 0, 0, 0.5);
+  content: "";
+  position: absolute;
+  left: 1.2vw;
+  bottom: 1vw;
+  transform: scaleX(0);
+  transition: 0.3s;
+}
+.weather__navigation .tabs__items .tabs__item:hover::after {
+  transform: scaleX(1);
+}
+.weather__navigation .tabs__items .tabs__item.active {
+  display: block;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+  font-weight: 500;
+}
+.weather__navigation .tabs__items .tabs__item:first-child {
+  border-bottom-left-radius: 20px;
 }
 
 .preloader {

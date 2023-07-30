@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500&display=swap');
 
 * {
   margin: 0;
@@ -16,9 +16,22 @@
   align-items: center;
 }
 
+@mixin clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
 .weather {
   width: 60vw;
-  height: 70vh;
   border-radius: 20px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.22) 100%);
   filter: blur(0px);
@@ -60,6 +73,89 @@
           transform: scale(1.1);
           transition: all 0.1s ease-in-out;
         }
+    }
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__tabs {
+    position: relative;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .active{
+    display: flex;
+  }
+  &__tab {
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 1.5vw 1vw;
+    &-temperature {
+      font-size: 6vw;
+      line-height: 5vw;
+      font-weight: 500;
+    }
+    &-icon {
+      background-color: aqua;
+      &-img {
+        max-width: 100%;
+      }
+    }
+  }
+  &__tab-now {
+    display: none;
+  }
+  &__tab-details {
+    display: none;
+  }
+  &__tab-forecast {
+    display: none;
+  }
+  &__navigation {
+    .tabs__items {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      border-top: 2px solid rgba(0, 0, 0, 0.2);
+      padding: 0;
+      .tabs__item {
+        border-right: 2px solid rgba(0, 0, 0, 0.2);
+        padding: 1.5vw 1.1vw;
+        width: 33.3%;
+        font-size: 2.3vw;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        transition: .3s ease-out .1s;
+        &::after {
+          height: 2px;
+          width: 80%;
+          background: rgba(0, 0, 0, 0.5);
+          content: "";
+          position: absolute;
+          left: 1.2vw;
+          bottom: 1vw;
+          transform: scaleX(0);
+          transition: .3s;
+        }
+        &:hover {
+          &::after {
+            transform: scaleX(1);
+          }
+        }
+      }
+      .tabs__item.active {
+        display: block;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+        font-weight: 500;
+      }
+      .tabs__item:first-child {
+        border-bottom-left-radius: 20px;
+      }
     }
   }
 }

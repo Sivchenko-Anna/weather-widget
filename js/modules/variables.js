@@ -10,6 +10,12 @@ export const UI_ELEMENTS = {
   WEATHER_CONTAINER: document.querySelector(".weather__container"),
 };
 
+export const API = {
+  SERVER_URL: "http://api.openweathermap.org/data/2.5",
+  WEATHER_ACTUAL: "weather",
+  WEATHER_FORECAST: "forecast",
+};
+
 export const WEATHER = {
   NOW: {
     TEMPERATURE: document.querySelector(".weather__tab-temperature"),

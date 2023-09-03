@@ -1,4 +1,6 @@
 import { UI_ELEMENTS } from "./modules/variables.js";
+import { getWeatherData } from "./modules/api.js";
+import { clearInput } from "./modules/utils.js";
 
 function initialization() {
   UI_ELEMENTS.TABS.forEach((tab, index) => {
@@ -9,6 +11,13 @@ function initialization() {
       UI_ELEMENTS.WEATHER_TAB[index].classList.add("active");
     })
   })
+
+  UI_ELEMENTS.FORM.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const city = new FormData(UI_ELEMENTS.FORM).get("city");
+    await getWeatherData(city);
+    clearInput();
+  });
 }
 
 window.addEventListener("DOMContentLoaded", initialization)

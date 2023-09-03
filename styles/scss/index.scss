@@ -18,8 +18,9 @@
 
 .weather {
   width: 60vw;
-  // min-height: 70%;
-  // max-height: 70%;
+  max-width: 1400px;
+  // min-height: 63%;
+  // max-height: 90%;
   border-radius: 20px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.22) 100%);
   filter: blur(0px);

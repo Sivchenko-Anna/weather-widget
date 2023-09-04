@@ -1,6 +1,7 @@
 import { UI_ELEMENTS } from "./modules/variables.js";
 import { getWeatherData } from "./modules/api.js";
-import { clearInput } from "./modules/utils.js";
+import { clearInput, isInputEmpty } from "./modules/utils.js";
+import { setWeatherTabNow } from "./modules/ui.js";
 
 function initialization() {
   UI_ELEMENTS.TABS.forEach((tab, index) => {
@@ -15,7 +16,13 @@ function initialization() {
   UI_ELEMENTS.FORM.addEventListener("submit", async (event) => {
     event.preventDefault();
     const city = new FormData(UI_ELEMENTS.FORM).get("city");
-    await getWeatherData(city);
+    
+    if (isInputEmpty(city)) {
+      alert("Введите название города");
+      return;
+    }
+    // await getWeatherData(city);
+    setWeatherTabNow(await getWeatherData(city));
     clearInput();
   });
 }

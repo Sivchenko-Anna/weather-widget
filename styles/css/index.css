@@ -25,9 +25,9 @@
   backdrop-filter: blur(3px);
   font-family: "Sarabun", sans-serif;
 }
-@media only screen and (max-height: 915px) and (max-width: 1024px) {
+@media only screen and (max-height: 915px) and (max-width: 700px) {
   .weather {
-    height: 70vh;
+    height: 50vh;
   }
 }
 .weather__search {
@@ -46,7 +46,7 @@
 .weather__search-input {
   width: 92%;
   outline: none;
-  background-color: inherit;
+  background: transparent;
   border: 0;
   font-family: "Sarabun", sans-serif;
   font-size: 2.3vw;
@@ -56,6 +56,9 @@
 }
 .weather__search-input::placeholder {
   color: #444444;
+}
+.weather__search-input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
 }
 .weather__search-btn {
   width: 30px;
@@ -146,11 +149,25 @@
 .weather__tab-title {
   font-size: 3vw;
 }
+.weather__tab-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.weather__tab-list .list__item {
+  margin-bottom: 0.8vw;
+  font-size: 2vw;
+}
+.weather__tab-list .list__item span {
+  font-weight: 500;
+}
 .weather__tab-now {
   display: none;
 }
 .weather__tab-details {
   display: none;
+  justify-content: start;
+  gap: 2vw;
 }
 .weather__tab-forecast {
   display: none;

@@ -28,6 +28,7 @@ export const WEATHER = {
     TEMPERATURE: document.querySelector(".temperature"),
     FEELS_LIKE: document.querySelector(".feels"),
     DESCRIPTION: document.querySelector(".weather-description"),
+    WIND: document.querySelector(".weather-wind"),
     SUNRISE: document.querySelector(".sunrise"),
     SUNSET: document.querySelector(".sunset"),
   },

@@ -1,5 +1,6 @@
-import { WEATHER } from "./variables.js";
+import { UI_ELEMENTS, WEATHER } from "./variables.js";
 import { convertTime } from "./utils.js";
+import { locations, createLocationItem } from "./location.js";
 
 export function setWeatherTabNow(data) {
   const {main, name, weather} = data;
@@ -28,4 +29,14 @@ export function setWeatherTabDetails(data) {
   WEATHER.DETAILS.WIND.textContent = windSpeed;
   WEATHER.DETAILS.SUNRISE.textContent = sunriseTime;
   WEATHER.DETAILS.SUNSET.textContent = sunsetTime;
+}
+
+// function renderTabs () {
+
+// }
+
+export function renderLocations() {
+  UI_ELEMENTS.CITIES_LIST.innerHTML = "";
+  let locationsList = locations.map((item) => createLocationItem(item));
+  UI_ELEMENTS.CITIES_LIST.append(...locationsList);
 }

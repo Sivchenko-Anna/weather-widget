@@ -8,6 +8,14 @@ export function isInputEmpty(value) {
   return !value.trim();
 }
 
+export function isLocationExist(arr, name) {
+  return arr.find((item) => item.location === name);
+}
+
+export function findLocationIndex(arr, location) {
+  return arr.findIndex((item) => item.location === location);
+}
+
 export function convertTime(time, timezone) {
   if (typeof time !== "number" || typeof timezone !== "number") {
     throw new Error("Time and timezone must be numbers.");

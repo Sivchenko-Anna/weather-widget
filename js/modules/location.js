@@ -2,7 +2,7 @@ import { WEATHER } from "./variables.js";
 import { isLocationExist, findLocationIndex } from "./utils.js";
 import { renderLocations, renderTabs } from "./ui.js";
 import { getWeatherData, getWeatherForecast } from "./api.js";
-import { getFromLocalStorage, saveToLocalStorage } from "./storage.js";
+import { getFromLocalStorage, saveCurrentCityInLocalStorage, saveToLocalStorage } from "./storage.js";
 
 // export let locations = [];
 export let locations = getFromLocalStorage("favoriteLocation") || [];
@@ -39,6 +39,7 @@ export function createLocationItem(item) {
   favoriteLocation.append(btnCloseLocation);
 
   favoriteLocation.addEventListener("click", async () => {
+    saveCurrentCityInLocalStorage(item.location);
     renderTabs(
       await getWeatherData(item.location),
       await getWeatherForecast(item.location)

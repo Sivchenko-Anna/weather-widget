@@ -3,6 +3,7 @@ import { getWeatherData, getWeatherForecast } from "./api.js";
 import { clearInput, isInputEmpty } from "./utils.js";
 import { renderLocations, renderTabs } from "./ui.js";
 import { addFavoriteLocation } from "./location.js";
+import { saveCurrentCityInLocalStorage } from "./storage.js";
 
 export async function initialization() {
   UI_ELEMENTS.TABS.forEach((tab, index) => {
@@ -27,6 +28,7 @@ export async function initialization() {
     const forecastData = await getWeatherForecast(city);
 
     renderTabs(actualData, forecastData);
+    saveCurrentCityInLocalStorage(city);
     clearInput();
   });
 

@@ -2,6 +2,8 @@ import { UI_ELEMENTS, WEATHER } from "./variables.js";
 import { convertTime, convertDate } from "./utils.js";
 import { locations, createLocationItem } from "./location.js";
 import { hideLoader, showLoader } from "./preload.js";
+import { getCurrentCityFromlocalStorage } from "./storage.js";
+import { getWeatherData, getWeatherForecast } from "./api.js";
 
 export function setWeatherTabNow(data) {
   const {main, name, weather} = data;
@@ -77,8 +79,13 @@ export function renderTabs(actualData, forecastData) {
   setTimeout(hideLoader, 250);
 }
 
-export function renderLocations() {
+export async function renderLocations() {
   UI_ELEMENTS.CITIES_LIST.innerHTML = "";
   let locationsList = locations.map((item) => createLocationItem(item));
   UI_ELEMENTS.CITIES_LIST.append(...locationsList);
+
+  const lastLocation = getCurrentCityFromlocalStorage();
+  const actualData = await getWeatherData(lastLocation);
+  const forecastData = await getWeatherForecast(lastLocation);
+  renderTabs(actualData, forecastData);
 }

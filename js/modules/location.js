@@ -1,9 +1,11 @@
 import { WEATHER } from "./variables.js";
 import { isLocationExist, findLocationIndex } from "./utils.js";
 import { renderLocations, renderTabs } from "./ui.js";
-import { getWeatherData } from "./api.js";
+import { getWeatherData, getWeatherForecast } from "./api.js";
+import { getFromLocalStorage, saveToLocalStorage } from "./storage.js";
 
-export let locations = [];
+// export let locations = [];
+export let locations = getFromLocalStorage("favoriteLocation") || [];
 
 export function addFavoriteLocation() {
   try {
@@ -13,6 +15,7 @@ export function addFavoriteLocation() {
       return;
     }
     locations.push({ location: favoriteCity });
+    saveToLocalStorage("favoriteLocation", locations);
     renderLocations();
   } catch (error) {
     console.log(error);
@@ -22,6 +25,7 @@ export function addFavoriteLocation() {
 export function deleteFavoriteLocation(favoriteLocation) {
   const index = findLocationIndex(locations, favoriteLocation);
   locations.splice(index, 1);
+  saveToLocalStorage("favoriteLocation", locations);
   renderLocations();
 }
 
@@ -35,7 +39,10 @@ export function createLocationItem(item) {
   favoriteLocation.append(btnCloseLocation);
 
   favoriteLocation.addEventListener("click", async () => {
-    renderTabs(await getWeatherData(item.location));
+    renderTabs(
+      await getWeatherData(item.location),
+      await getWeatherForecast(item.location)
+    );
   });
 
   btnCloseLocation.addEventListener("click", (event) => {

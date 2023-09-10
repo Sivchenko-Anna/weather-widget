@@ -11,8 +11,8 @@ export async function getWeatherData(location) {
       setTimeout(hideLoader, 250);
       throw new Error("Повторите попытку позже");
     }
-    // setTimeout(hideLoader, 250);
     let data = await response.json();
+    setTimeout(hideLoader, 250);
     return data;
   } catch (error) {
     console.log(error);
@@ -28,8 +28,8 @@ export async function getWeatherForecast(location) {
       setTimeout(hideLoader, 250);
       throw new Error("Повторите попытку позже");
     }
-    // setTimeout(hideLoader, 250);
     let data = await response.json();
+    setTimeout(hideLoader, 250);
     return data;
   } catch (error) {
     console.log(error);

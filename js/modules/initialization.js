@@ -1,7 +1,8 @@
 import { UI_ELEMENTS } from "./variables.js";
 import { getWeatherData, getWeatherForecast } from "./api.js";
 import { clearInput, isInputEmpty } from "./utils.js";
-import { renderTabs } from "./ui.js";
+import { renderLocations, renderTabs } from "./ui.js";
+import { addFavoriteLocation } from "./location.js";
 
 export async function initialization() {
   UI_ELEMENTS.TABS.forEach((tab, index) => {
@@ -21,10 +22,15 @@ export async function initialization() {
       alert("Введите название города");
       return;
     }
+
     const actualData = await getWeatherData(city);
     const forecastData = await getWeatherForecast(city);
 
     renderTabs(actualData, forecastData);
     clearInput();
   });
+
+  UI_ELEMENTS.BTN_FAVORITE.addEventListener("click", addFavoriteLocation);
+
+  renderLocations();
 }

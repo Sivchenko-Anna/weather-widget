@@ -1,6 +1,7 @@
 import { UI_ELEMENTS, WEATHER } from "./variables.js";
 import { convertTime, convertDate } from "./utils.js";
 import { locations, createLocationItem } from "./location.js";
+import { hideLoader, showLoader } from "./preload.js";
 
 export function setWeatherTabNow(data) {
   const {main, name, weather} = data;
@@ -69,9 +70,11 @@ export function setWeatherTabForecast(data) {
 }
 
 export function renderTabs(actualData, forecastData) {
+  // showLoader();
   setWeatherTabNow(actualData);
   setWeatherTabDetails(actualData);
   setWeatherTabForecast(forecastData);
+  setTimeout(hideLoader, 250);
 }
 
 export function renderLocations() {

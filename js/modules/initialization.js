@@ -1,7 +1,7 @@
 import { UI_ELEMENTS } from "./variables.js";
-import { getWeatherData } from "./api.js";
+import { getWeatherData, getWeatherForecast } from "./api.js";
 import { clearInput, isInputEmpty } from "./utils.js";
-import { setWeatherTabNow, setWeatherTabDetails } from "./ui.js";
+import { renderTabs } from "./ui.js";
 
 export async function initialization() {
   UI_ELEMENTS.TABS.forEach((tab, index) => {
@@ -21,9 +21,10 @@ export async function initialization() {
       alert("Введите название города");
       return;
     }
-    const data = await getWeatherData(city);
-    setWeatherTabNow(data);
-    setWeatherTabDetails(data);
+    const actualData = await getWeatherData(city);
+    const forecastData = await getWeatherForecast(city);
+
+    renderTabs(actualData, forecastData);
     clearInput();
   });
 }

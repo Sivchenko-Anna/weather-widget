@@ -1,5 +1,5 @@
 import { WEATHER } from "./variables.js";
-import { isLocationExist, findLocationIndex } from "./utils";
+import { isLocationExist, findLocationIndex } from "./utils.js";
 import { renderLocations, renderTabs } from "./ui.js";
 import { getWeatherData } from "./api.js";
 

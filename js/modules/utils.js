@@ -34,3 +34,24 @@ export function convertTime(time, timezone) {
   });
   return localTime;
 }
+
+export function convertDate(date, timezone) {
+  if (typeof date !== "number" || typeof timezone !== "number") {
+    throw new Error("Date and timezone must be numbers.");
+  }
+
+  const newDate = new Date((date + timezone) * 1000);
+
+  if (isNaN(newDate.getTime())) {
+    throw new Error("Invalid date or timezone.");
+  }
+
+  const options = {
+    day: "numeric",
+    month: "long",
+    timeZone: "UTC",
+  };
+
+  const localDate = newDate.toLocaleDateString("en-GB", options);
+  return localDate;
+}

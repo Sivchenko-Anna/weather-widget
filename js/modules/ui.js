@@ -1,5 +1,5 @@
 import { UI_ELEMENTS, WEATHER } from "./variables.js";
-import { convertTime } from "./utils.js";
+import { convertTime, convertDate } from "./utils.js";
 import { locations, createLocationItem } from "./location.js";
 
 export function setWeatherTabNow(data) {
@@ -31,9 +31,48 @@ export function setWeatherTabDetails(data) {
   WEATHER.DETAILS.SUNSET.textContent = sunsetTime;
 }
 
-// function renderTabs () {
+export function setWeatherTabForecast(data) {
+  const { city, list } = data;
+  const name = city.name;
 
-// }
+  WEATHER.FORECAST.CITY.textContent = name;
+
+  WEATHER.FORECAST.DATE.forEach((date, index) => {
+    let dateForecast = convertDate(list[index].dt, city.timezone);
+    date.textContent = dateForecast;
+  });
+
+  WEATHER.FORECAST.TIME.forEach((time, index) => {
+    let timeForecast = convertTime(list[index].dt, city.timezone);
+    time.textContent = timeForecast;
+  })
+
+  WEATHER.FORECAST.TEMPERATURE.forEach((temp, index) => {
+    let tempForecast = Math.round(list[index].main.temp);
+    temp.textContent = tempForecast;
+  })
+
+  WEATHER.FORECAST.FEELS_LIKE.forEach((tempfeels, index) => {
+    let tempfeelsForecast = Math.round(list[index].main.feels_like);
+    tempfeels.textContent = tempfeelsForecast;
+  });
+
+  WEATHER.FORECAST.DESCRIPTION.forEach((description, index) => {
+    let descriptionForecast = list[index].weather[0].main;
+    description.textContent = descriptionForecast;
+  });
+
+  WEATHER.FORECAST.ICON.forEach((icon, index) => {
+    let iconForecast = list[index].weather[0].icon;
+    icon.src = `./assets/weather-icons/${iconForecast}.png`;
+  });
+}
+
+export function renderTabs(actualData, forecastData) {
+  setWeatherTabNow(actualData);
+  setWeatherTabDetails(actualData);
+  setWeatherTabForecast(forecastData);
+}
 
 export function renderLocations() {
   UI_ELEMENTS.CITIES_LIST.innerHTML = "";

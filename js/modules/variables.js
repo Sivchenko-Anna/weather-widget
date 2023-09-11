@@ -14,6 +14,7 @@ export const API = {
   SERVER_URL: "http://api.openweathermap.org/data/2.5",
   WEATHER_ACTUAL: "weather",
   WEATHER_FORECAST: "forecast",
+  API_KEY: "aaf2b0f6382dec6aeb5ea5dc761527cb",
 };
 
 export const WEATHER = {

@@ -4,6 +4,7 @@ import { clearInput, isInputEmpty } from "./utils.js";
 import { renderLocations, renderTabs } from "./ui.js";
 import { addFavoriteLocation } from "./location.js";
 import { saveCurrentCityInLocalStorage } from "./storage.js";
+import { hideLoader, showLoader } from "./preload.js";
 
 export async function initialization() {
   UI_ELEMENTS.TABS.forEach((tab, index) => {
@@ -27,9 +28,11 @@ export async function initialization() {
     const actualData = await getWeatherData(city);
     const forecastData = await getWeatherForecast(city);
 
+    showLoader();
     renderTabs(actualData, forecastData);
     saveCurrentCityInLocalStorage(city);
     clearInput();
+    setTimeout(hideLoader, 250);
   });
 
   UI_ELEMENTS.BTN_FAVORITE.addEventListener("click", addFavoriteLocation);

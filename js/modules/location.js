@@ -4,7 +4,6 @@ import { renderLocations, renderTabs } from "./ui.js";
 import { getWeatherData, getWeatherForecast } from "./api.js";
 import { getFromLocalStorage, saveCurrentCityInLocalStorage, saveToLocalStorage } from "./storage.js";
 
-// export let locations = [];
 export let locations = getFromLocalStorage("favoriteLocation") || [];
 
 export function addFavoriteLocation() {

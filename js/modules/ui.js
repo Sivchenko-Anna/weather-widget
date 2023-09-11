@@ -1,7 +1,6 @@
 import { UI_ELEMENTS, WEATHER } from "./variables.js";
 import { convertTime, convertDate } from "./utils.js";
 import { locations, createLocationItem } from "./location.js";
-import { hideLoader, showLoader } from "./preload.js";
 import { getCurrentCityFromlocalStorage } from "./storage.js";
 import { getWeatherData, getWeatherForecast } from "./api.js";
 
@@ -72,11 +71,9 @@ export function setWeatherTabForecast(data) {
 }
 
 export function renderTabs(actualData, forecastData) {
-  // showLoader();
   setWeatherTabNow(actualData);
   setWeatherTabDetails(actualData);
   setWeatherTabForecast(forecastData);
-  setTimeout(hideLoader, 250);
 }
 
 export async function renderLocations() {

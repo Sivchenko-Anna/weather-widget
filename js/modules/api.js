@@ -4,6 +4,7 @@ import { API } from "./variables.js";
 
 export async function getWeatherData(location) {
   try {
+    location = location.trim();
     const url = `${API.SERVER_URL}/${API.WEATHER_ACTUAL}?q=${location}&appid=${API.API_KEY}&units=metric`;
     let response = await fetch(url);
     if (response.status === 404) {

@@ -13,6 +13,7 @@ export function setWeatherTabNow(data) {
   WEATHER.NOW.TEMPERATURE.textContent = `${temp}°`;
   WEATHER.NOW.ICON.src = iconSrc;
   WEATHER.NOW.CITY_NAME.textContent = name;
+  updateLikeIcon();
 }
 
 export function setWeatherTabDetails(data) {
@@ -84,5 +85,19 @@ export async function renderLocations() {
   const lastLocation = getCurrentCityFromlocalStorage();
   const actualData = await getWeatherData(lastLocation);
   const forecastData = await getWeatherForecast(lastLocation);
+  updateLikeIcon();
   renderTabs(actualData, forecastData);
+}
+
+export function updateLikeIcon() {
+  const currentLocation = WEATHER.NOW.CITY_NAME.textContent;
+  const isLocationInArray = locations.some(
+    (item) => item.location === currentLocation
+  );
+
+  if (isLocationInArray) {
+    UI_ELEMENTS.BTN_FAVORITE.classList.add("liked");
+  } else {
+    UI_ELEMENTS.BTN_FAVORITE.classList.remove("liked");
+  }
 }

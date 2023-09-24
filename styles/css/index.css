@@ -182,8 +182,27 @@
 }
 .weather__tab-city-like {
   background-color: transparent;
+  height: 100%;
   border: 0;
   cursor: pointer;
+}
+.weather__tab-city-like .heart-btn {
+  display: block;
+  height: 4vw;
+  width: 4vw;
+  margin-left: auto;
+  fill: rgba(0, 0, 0, 0.877);
+  -webkit-fill-color: rgba(0, 0, 0, 0.877);
+  -moz-fill-color: rgba(0, 0, 0, 0.877);
+}
+.weather__tab-city-like.liked path {
+  fill: #e23a20;
+  -webkit-fill-color: #e23a20;
+  -moz-fill-color: #e23a20;
+  -webkit-transition: fill 0.3s ease-in-out;
+  -moz-transition: fill 0.3s ease-in-out;
+  -o-transition: fill 0.3s ease-in-out;
+  transition: fill 0.3s ease-in-out;
 }
 .weather__tab-title {
   font-size: 4vw;
@@ -354,6 +373,12 @@
 @media only screen and (max-width: 428px) {
   .weather__navigation .tabs__items .tabs__item {
     font-size: 3vw;
+  }
+  .weather__navigation .tabs__items .tabs__item::after {
+    display: none;
+  }
+  .weather__navigation .tabs__items .tabs__item:hover::after {
+    display: none;
   }
 }
 .weather__navigation .tabs__items .tabs__item.active {

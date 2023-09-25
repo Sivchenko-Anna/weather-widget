@@ -1,4 +1,3 @@
-// import { API_KEY } from "../key.js";
 import { hideLoader } from "./preload.js";
 import { API } from "./variables.js";
 
@@ -13,12 +12,14 @@ export async function getWeatherData(location) {
     }
     if (!response.ok) {
       setTimeout(hideLoader, 250);
+      alert("Повторите попытку позже");
       throw new Error("Повторите попытку позже");
     }
     let data = await response.json();
     return data;
   } catch (error) {
-    console.log(error);
+    console.error(error)
+    alert("Упс! Произошла ошибка при запросе на сервер")
   }
 }
 
@@ -33,6 +34,7 @@ export async function getWeatherForecast(location) {
     let data = await response.json();
     return data;
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    alert(error.message);
   }
 }

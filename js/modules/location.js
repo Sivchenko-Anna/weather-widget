@@ -1,5 +1,5 @@
 import { WEATHER } from "./variables.js";
-import { isLocationExist, findLocationIndex } from "./utils.js";
+import { findLocationIndex } from "./utils.js";
 import { renderLocations, renderTabs } from "./ui.js";
 import { getWeatherData, getWeatherForecast } from "./api.js";
 import { getFromLocalStorage, saveCurrentCityInLocalStorage, saveToLocalStorage } from "./storage.js";
@@ -9,15 +9,19 @@ export let locations = getFromLocalStorage("favoriteLocation") || [];
 export function addFavoriteLocation() {
   try {
     const favoriteCity = WEATHER.NOW.CITY_NAME.textContent;
-    if (isLocationExist(locations, favoriteCity)) {
-      alert("Выбранный город уже добавен в избранное");
+
+    if (locations.some((el) => el.location === favoriteCity)) {
+      locations = locations.filter((el) => el.location !== favoriteCity);
+      saveToLocalStorage("favoriteLocation", locations);
+      renderLocations();
       return;
     }
+
     locations.push({ location: favoriteCity });
     saveToLocalStorage("favoriteLocation", locations);
     renderLocations();
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 

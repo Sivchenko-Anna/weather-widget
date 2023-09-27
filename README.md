@@ -25,3 +25,10 @@
 - Список избранных городов: Пользователь может добавлять города в список избранного путем нажатия на кнопку сердечка. Города могут быть добавлены и удалены из списка. При выборе города из списка избранного, информация на вкладках автоматически обновляется для выбранного города
 
 ### Примеры использования 
+![1](https://github.com/Sivchenko-Anna/weather-widget/assets/103916590/cd81841d-feda-4a82-8df2-34884e5da14d)
+![2](https://github.com/Sivchenko-Anna/weather-widget/assets/103916590/d47833ea-aefc-4ff5-873e-c08567a3ff16)
+![3](https://github.com/Sivchenko-Anna/weather-widget/assets/103916590/20afbf24-1777-4516-a8d1-067a33651d99)
+![4](https://github.com/Sivchenko-Anna/weather-widget/assets/103916590/539e1022-840c-47cb-8384-28bbba4ee3ae)
+
+
+
